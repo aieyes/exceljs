@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   grunt.initConfig({
     babel: {
@@ -79,8 +80,20 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    cssmin: {
+      options: {
+        mergeIntoShorthands: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          './dist/exceljs.min.css': ['./lib/**/*.css']
+        }
+      }
+    }
   });
 
-  grunt.registerTask('build', ['babel', 'browserify', 'uglify', 'copy']);
+  grunt.registerTask('build', ['babel', 'browserify', 'uglify', 'copy', 'cssmin']);
   grunt.registerTask('ug', ['uglify']);
 };

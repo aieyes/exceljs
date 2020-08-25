@@ -1,16 +1,12 @@
 {
-  "name": "exceljs",
+  "name": "aieyes-exceljs",
   "version": "1.8.0",
-  "description": "Excel Workbook Manager - Read and Write xlsx and csv Files.",
+  "description": "A fork of exceljs and add some custom stuffs to v1.8.0",
   "private": false,
   "license": "MIT",
-  "author": {
-    "name": "Guyon Roche",
-    "email": "guyon@live.com"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/exceljs/exceljs.git"
+    "url": "https://github.com/aieyes/exceljs.git"
   },
   "engines": {
     "node": ">=6.0.0"
@@ -66,7 +62,8 @@
     "unzipper": "^0.9.7",
     "promish": ">=5.0.2",
     "sax": "^1.2.2",
-    "temp": "0.8.3"
+    "temp": "0.8.3",
+    "chai": "@<1.10.0 || >1.10.0 <4"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.0",
@@ -88,6 +85,7 @@
     "grunt-babel": "^6.0.0",
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
     "grunt-contrib-jasmine": "^2.0.3",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "^1.0.0",

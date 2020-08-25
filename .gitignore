@@ -48,3 +48,5 @@ spec/integration/data/gold
 /spec/manual/public/exceljs.min.js
 
 package-lock.json
+
+package

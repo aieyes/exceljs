@@ -1,0 +1,17 @@
+table[xlsx] {
+    font-family: "SimSun,Songti SC,serif";
+}
+table[xlsx] caption {
+    caption-side: top;
+    text-align: center;
+}
+table[xlsx] th[xlsx-align-center],table[xlsx] td[xlsx-align-center] {
+    text-align: center;
+}
+table[xlsx] th[xlsx-align-left],table[xlsx] td[xlsx-align-left] {
+    text-align: left;
+}
+table[xlsx] th[xlsx-align-right],table[xlsx] td[xlsx-align-right] {
+    text-align: right;
+}
+

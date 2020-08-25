@@ -1359,3 +1359,9 @@ export namespace stream {
 		}
 	}
 }
+
+export class TableParser {
+	static version: string;
+	static SSF: any;
+	static utils: any;
+}
