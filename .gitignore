@@ -50,3 +50,5 @@ spec/integration/data/gold
 package-lock.json
 
 package
+
+*.tgz

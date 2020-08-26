@@ -1,6 +1,6 @@
 'use strict';
 
-var Sax = require('sax');
+// var Sax = require('sax');
 var _ = require('../../../utils/under-dash');
 
 var chai = require('chai');
@@ -110,68 +110,68 @@ var its = {
     });
   },
   
-  parseIn: function(expectation) {
-    it('Parse within composite', function() {
-      return new Promise(function(resolve, reject) {
-        var xml = '<compy><pre/>' + getExpectation(expectation, 'xml') + '<post/></compy>';
-        var childXform = expectation.create();
-        var result = {pre: true};
-        result[childXform.tag] = getExpectation(expectation, 'parsedModel');
-        result.post = true;
-        var xform = new CompositeXform({
-          tag: 'compy',
-          children: [
-            {name: 'pre', xform: new BooleanXform({tag: 'pre', attr: 'val'})},
-            {name: childXform.tag, xform: childXform},
-            {name: 'post', xform: new BooleanXform({tag: 'post', attr: 'val'})}
-          ]
-        });
-        var parser = Sax.createStream(true);
+  // parseIn: function(expectation) {
+  //   it('Parse within composite', function() {
+  //     return new Promise(function(resolve, reject) {
+  //       var xml = '<compy><pre/>' + getExpectation(expectation, 'xml') + '<post/></compy>';
+  //       var childXform = expectation.create();
+  //       var result = {pre: true};
+  //       result[childXform.tag] = getExpectation(expectation, 'parsedModel');
+  //       result.post = true;
+  //       var xform = new CompositeXform({
+  //         tag: 'compy',
+  //         children: [
+  //           {name: 'pre', xform: new BooleanXform({tag: 'pre', attr: 'val'})},
+  //           {name: childXform.tag, xform: childXform},
+  //           {name: 'post', xform: new BooleanXform({tag: 'post', attr: 'val'})}
+  //         ]
+  //       });
+  //       var parser = Sax.createStream(true);
+  //
+  //       xform.parse(parser)
+  //         .then(function(model) {
+  //           // console.log('parsed Model', JSON.stringify(model));
+  //           // console.log('expected Model', JSON.stringify(result));
+  //
+  //           // eliminate the undefined
+  //           var clone = _.cloneDeep(model, false);
+  //
+  //           // console.log('result', JSON.stringify(clone));
+  //           // console.log('expect', JSON.stringify(result));
+  //           expect(clone).to.deep.equal(result);
+  //           resolve();
+  //         })
+  //         .catch(reject);
+  //       parser.write(xml);
+  //     });
+  //   });
+  // },
 
-        xform.parse(parser)
-          .then(function(model) {
-            // console.log('parsed Model', JSON.stringify(model));
-            // console.log('expected Model', JSON.stringify(result));
-
-            // eliminate the undefined
-            var clone = _.cloneDeep(model, false);
-
-            // console.log('result', JSON.stringify(clone));
-            // console.log('expect', JSON.stringify(result));
-            expect(clone).to.deep.equal(result);
-            resolve();
-          })
-          .catch(reject);
-        parser.write(xml);
-      });
-    });
-  },
-
-  parse: function(expectation) {
-    it('Parse to Model', function() {
-      return new Promise(function(resolve, reject) {
-        var xml = getExpectation(expectation, 'xml');
-        var result = getExpectation(expectation, 'parsedModel');
-
-        var parser = Sax.createStream(true);
-        var xform = expectation.create();
-
-        xform.parse(parser)
-          .then(function(model) {
-            // eliminate the undefined
-            var clone = _.cloneDeep(model, false);
-
-            // console.log('result', JSON.stringify(clone));
-            // console.log('expect', JSON.stringify(result));
-            expect(clone).to.deep.equal(result);
-            resolve();
-          })
-          .catch(reject);
-
-        parser.write(xml);
-      });
-    });
-  },
+  // parse: function(expectation) {
+  //   it('Parse to Model', function() {
+  //     return new Promise(function(resolve, reject) {
+  //       var xml = getExpectation(expectation, 'xml');
+  //       var result = getExpectation(expectation, 'parsedModel');
+  //
+  //       var parser = Sax.createStream(true);
+  //       var xform = expectation.create();
+  //
+  //       xform.parse(parser)
+  //         .then(function(model) {
+  //           // eliminate the undefined
+  //           var clone = _.cloneDeep(model, false);
+  //
+  //           // console.log('result', JSON.stringify(clone));
+  //           // console.log('expect', JSON.stringify(result));
+  //           expect(clone).to.deep.equal(result);
+  //           resolve();
+  //         })
+  //         .catch(reject);
+  //
+  //       parser.write(xml);
+  //     });
+  //   });
+  // },
 
   reconcile: function(expectation) {
     it('Reconcile Model', function() {
