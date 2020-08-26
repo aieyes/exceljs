@@ -1,6 +1,6 @@
 {
   "name": "aieyes-exceljs-o",
-  "version": "1.8.1",
+  "version": "1.8.4",
   "description": "A fork of exceljs and add some custom stuffs to v1.8.0",
   "private": false,
   "license": "MIT",
