@@ -1,5 +1,5 @@
 {
-  "name": "aieyes-exceljs",
+  "name": "aieyes-exceljs-o",
   "version": "1.8.0",
   "description": "A fork of exceljs and add some custom stuffs to v1.8.0",
   "private": false,
@@ -31,7 +31,6 @@
   "keywords": [
     "xlsx",
     "json",
-    "csv",
     "excel",
     "font",
     "border",
@@ -56,9 +55,7 @@
   "dependencies": {
     "@types/node": "*",
     "archiver": "^3.0.0",
-    "fast-csv": "^2.4.0",
     "jszip": "3.1.3",
-    "moment": "^2.22.2",
     "unzipper": "^0.9.7",
     "promish": ">=5.0.2",
     "sax": "^1.2.2",

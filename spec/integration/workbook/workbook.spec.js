@@ -9,7 +9,6 @@ var Excel = verquire('excel');
 var expect = chai.expect;
 
 var TEST_XLSX_FILE_NAME = './spec/out/wb.test.xlsx';
-var TEST_CSV_FILE_NAME = './spec/out/wb.test.csv';
 
 // =============================================================================
 // Tests
@@ -268,24 +267,6 @@ describe('Workbook', function() {
         });
     });
 
-    it('csv file', function() {
-      this.timeout(5000);
-
-      var wb = testUtils.createTestBook(new Excel.Workbook(), 'csv');
-
-      return wb.csv.writeFile(TEST_CSV_FILE_NAME)
-        .then(function() {
-          var wb2 = new Excel.Workbook();
-          return wb2.csv.readFile(TEST_CSV_FILE_NAME)
-            .then(function() {
-              return wb2;
-            });
-        })
-        .then(function(wb2) {
-          testUtils.checkTestBook(wb2, 'csv');
-        });
-    });
-
     it('defined names', function() {
       var wb1 = new Excel.Workbook();
       var ws1a = wb1.addWorksheet('blort');
@@ -515,22 +496,6 @@ describe('Workbook', function() {
     var success = 0;
     return wb.xlsx.readFile('./wb.doesnotexist.xlsx')
       .then(function(/* wb2 */) {
-        success = 1;
-      })
-      .catch(function(/* error */) {
-        success = 2;
-        // expect the right kind of error
-      })
-      .finally(function() {
-        expect(success).to.equal(2);
-      });
-  });
-
-  it('throws an error when csv file not found', function() {
-    var wb = new Excel.Workbook();
-    var success = 0;
-    return wb.csv.readFile('./wb.doesnotexist.csv')
-      .then(function(/* wb */) {
         success = 1;
       })
       .catch(function(/* error */) {

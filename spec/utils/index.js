@@ -6,8 +6,6 @@ var verquire = require('./verquire');
 var _ = require('./under-dash');
 var tools = require('./tools');
 
-var testWorkbookReader = require('./test-workbook-reader');
-
 var Row = verquire('doc/row');
 var Column = verquire('doc/column');
 
@@ -30,18 +28,6 @@ function getOptions(docType, options) {
         checkSheetProperties: true,
         dateAccuracy: 3,
         checkViews: true
-      };
-      break;
-    case 'csv':
-      result = {
-        sheetName: 'sheet1',
-        checkFormulas: false,
-        checkMerges: false,
-        checkStyles: false,
-        checkBadAlignments: false,
-        checkSheetProperties: false,
-        dateAccuracy: 1000,
-        checkViews: false
       };
       break;
     default:
@@ -89,8 +75,6 @@ module.exports = {
       testSheet.checkSheet(workbook, options);
     });
   },
-
-  checkTestBookReader: testWorkbookReader.checkBook,
 
   createSheetMock: function() {
     return {
