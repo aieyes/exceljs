@@ -1,6 +1,6 @@
 {
   "name": "aieyes-exceljs-o",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "description": "A fork of exceljs and add some custom stuffs to v1.8.0",
   "private": false,
   "license": "MIT",
@@ -22,6 +22,7 @@
     "test:native-integration": "export EXCEL_NATIVE=yes && mocha --require spec/config/setup spec/integration --recursive",
     "test:manual": "node spec/manual/app.js",
     "clean-build": "npm run clean && npm run build",
+    "pack": "npm pack",
     "lint": "eslint --ext .js lib spec",
     "clean": "rm -rf build/ && rm -rf dist",
     "build": "./node_modules/.bin/grunt build",
